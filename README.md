@@ -1,2 +1,2 @@
 # dynamic_ui_http
-Endpoints for dynamic ui
+HTTP Endpoints for dynamic ui
