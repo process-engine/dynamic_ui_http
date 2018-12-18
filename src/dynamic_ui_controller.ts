@@ -13,6 +13,10 @@ export class DynamicUIController {
     this._dynamicUIApi = dynamicUIApi;
   }
 
+  public get assetsPath(): string {
+    return this._dynamicUIApi.assetsPath;
+  }
+
   public async getDialog(request: HttpRequestWithIdentity, response: Response): Promise<any> {
     const formKey: string = request.params.form_key;
     const sessionId: string = request.query.sessionId;
