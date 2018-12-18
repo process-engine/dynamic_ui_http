@@ -1,13 +1,13 @@
-import {Container} from 'addict-ioc';
+'use strict';
 
-import {routerDiscoveryTag} from '@essential-projects/bootstrapper_contracts';
-
-import {
+const {
   DynamicUIController,
   DynamicUIRouter,
-} from '.';
+} = require('./dist/commonjs/index');
 
-export function registerInContainer(container: Container): void {
+const routerDiscoveryTag = require('@essential-projects/bootstrapper_contracts').routerDiscoveryTag;
+
+function registerInContainer(container) {
 
   container
     .register('DynamicUIController', DynamicUIController)
@@ -19,3 +19,5 @@ export function registerInContainer(container: Container): void {
     .singleton()
     .tags(routerDiscoveryTag);
 }
+
+module.exports.registerInContainer = registerInContainer;
