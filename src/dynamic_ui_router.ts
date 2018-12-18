@@ -31,7 +31,7 @@ export class DynamicUIRouter extends BaseRouter {
   private registerRoutes(): void {
     const controller: DynamicUIController = this._dynamicUIController;
 
-    this.router.use('/assets', express.static(`${__dirname}/../dynamic_ui_core/assets`));
+    this.router.use('/assets', express.static(controller.assetsPath));
 
     this.router.get(restSettings.paths.getDialog, wrap(controller.getDialog.bind(controller)));
     this.router.post(restSettings.paths.postDialog, wrap(controller.postDialog.bind(controller)));
