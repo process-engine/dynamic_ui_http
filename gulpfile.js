@@ -6,16 +6,6 @@ const tsconfig = require('tsconfig');
 
 const buildSystemConfig = {
   suppressErrorsForTasks: ['lint'],
-  copy: {
-    "src/dynamic_ui/dynamic_ui_core/templates/*": "dist/commonjs/dynamic_ui/dynamic_ui_core/templates/",
-    "src/dynamic_ui/dynamic_ui_core/assets/*": "dist/commonjs/dynamic_ui/dynamic_ui_core/assets/",
-  },
-  conventionalTasks: {
-    build: {
-      help: 'Builds all source files',
-      tasksBefore: ['clean', 'copy']
-    },
-  }
 };
 
 const buildSystem = new gulptraum.BuildSystem(buildSystemConfig);
