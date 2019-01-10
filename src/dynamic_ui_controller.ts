@@ -32,7 +32,7 @@ export class DynamicUIController {
   public async postDialog(request: HttpRequestWithIdentity, response: Response): Promise<any> {
 
     const body: any = request.body;
-    const sessionId: string = body.sessionId;
+    const sessionId: string = body.access_token;
 
     const dialogAsHtml: any = await this._dynamicUIApi.finishDialog(sessionId, body);
 
