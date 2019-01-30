@@ -29,7 +29,7 @@ export class DynamicUIRouter extends BaseRouter {
     this.router.use('/assets', express.static(controller.assetsPath));
 
     this.router.get(restSettings.paths.getIndex, wrap(controller.getIndex.bind(controller)));
-    this.router.post(restSettings.paths.getWebcomponent, wrap(controller.getWebcomponent.bind(controller)));
+    this.router.get(restSettings.paths.getWebcomponent, wrap(controller.getWebcomponent.bind(controller)));
   }
 
 }
