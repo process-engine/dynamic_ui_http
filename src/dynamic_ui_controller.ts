@@ -20,7 +20,7 @@ export class DynamicUIController {
   public async getIndex(request: HttpRequestWithIdentity, response: Response): Promise<any> {
     const formKey: string = request.params.form_key;
 
-    const dialogAsHtml: any = await this._dynamicUIApi.getIndex();
+    const dialogAsHtml: any = await this._dynamicUIApi.getIndex(formKey);
 
     response.status(this.httpCodeSuccessfulResponse).send(dialogAsHtml);
   }
