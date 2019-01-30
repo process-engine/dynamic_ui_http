@@ -17,24 +17,19 @@ export class DynamicUIController {
     return this._dynamicUIApi.assetsPath;
   }
 
-  public async getDialog(request: HttpRequestWithIdentity, response: Response): Promise<any> {
+  public async getIndex(request: HttpRequestWithIdentity, response: Response): Promise<any> {
     const formKey: string = request.params.form_key;
-    const sessionId: string = request.query.sessionId;
-    const correlationId: string = request.query.correlationId;
-    const processInstanceId: string = request.query.processInstanceId;
-    const userTaskId: string = request.query.userTaskId;
 
-    const dialogAsHtml: any = await this._dynamicUIApi.getDialog(sessionId, formKey, correlationId, processInstanceId, userTaskId);
+    const dialogAsHtml: any = await this._dynamicUIApi.getIndex();
 
     response.status(this.httpCodeSuccessfulResponse).send(dialogAsHtml);
   }
 
-  public async postDialog(request: HttpRequestWithIdentity, response: Response): Promise<any> {
+  public async getWebcomponent(request: HttpRequestWithIdentity, response: Response): Promise<any> {
 
-    const body: any = request.body;
-    const sessionId: string = body.access_token;
+    const formKey: string = request.params.form_key;
 
-    const dialogAsHtml: any = await this._dynamicUIApi.finishDialog(sessionId, body);
+    const dialogAsHtml: any = await this._dynamicUIApi.getWebcomponent(formKey);
 
     response.status(this.httpCodeSuccessfulResponse).send(dialogAsHtml);
   }

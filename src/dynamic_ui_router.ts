@@ -20,12 +20,7 @@ export class DynamicUIRouter extends BaseRouter {
   }
 
   public async initializeRouter(): Promise<void> {
-    this.registerMiddlewares();
     this.registerRoutes();
-  }
-
-  private registerMiddlewares(): void {
-    // this.router.use(wrap(resolveIdentity));
   }
 
   private registerRoutes(): void {
@@ -33,8 +28,8 @@ export class DynamicUIRouter extends BaseRouter {
 
     this.router.use('/assets', express.static(controller.assetsPath));
 
-    this.router.get(restSettings.paths.getDialog, wrap(controller.getDialog.bind(controller)));
-    this.router.post(restSettings.paths.postDialog, wrap(controller.postDialog.bind(controller)));
+    this.router.get(restSettings.paths.getIndex, wrap(controller.getIndex.bind(controller)));
+    this.router.post(restSettings.paths.getWebcomponent, wrap(controller.getWebcomponent.bind(controller)));
   }
 
 }
