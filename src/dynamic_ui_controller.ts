@@ -31,7 +31,6 @@ export class DynamicUIController {
 
     const dialogAsHtml: any = await this._dynamicUIApi.getWebcomponent(formKey);
 
-    response.set('Content-Type', 'application/javascript');
-    response.status(this.httpCodeSuccessfulResponse).send(dialogAsHtml);
+    response.status(this.httpCodeSuccessfulResponse).contentType('application/javascript').send(dialogAsHtml);
   }
 }
