@@ -26,8 +26,7 @@ export class DynamicUIController {
   }
 
   public async getWebcomponent(request: HttpRequestWithIdentity, response: Response): Promise<any> {
-    console.log('getWebcomponent');
-    console.log(request);
+
     const formKey: string = request.params.form_key;
 
     const dialogAsHtml: any = await this._dynamicUIApi.getWebcomponent(formKey);
